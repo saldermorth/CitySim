@@ -1,0 +1,37 @@
+﻿NPCs
+*Medborgare
+*Tjuv
+*Polis
+
+NPC Properties
+*Position
+*Direction X and Y - Slumpas vid programstart 6 möjliga riktningar
+*Inventory
+
+Interactions
+*Polis möter Tjuv - Allt Stöldgods beslagtas - "Polis tar tjuv"
+*Medborgare möter tjuv - En random inventory stjäles - "Tjuv rånar medborgare"
+*Polis möter Medborgare - Inget händer - "Hej konstapeln"
+*NPC Möter kanten av spelplanen - Transporteras till andra sidan av rutan och fortsätter i samma riktning
+
+Inventory
+*Nycklar
+*Mobiltelefon
+*Pengar - Olika summor?
+*Klocka
+
+Options
+*Val av NPC mängder
+*Meny
+
+Rules
+*Programmet ska loopa automatiskt
+*När Npc Möts ska Programmet pausas och ett meddelande skrivs ut
+*Redovisning av interaktioner ska loggas live
+
+Classes
+*NPC - Polis - Medborgare - Tjuv - Batman?
+*Inventory -PlinInv - TjuvInv - MedborgareInv
+*Playfield drawer
+*Logger/Saver
+*Interactor - Logic
