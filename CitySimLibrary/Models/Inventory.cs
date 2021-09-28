@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TjuvOchPolis
 {
-    public class Inventory_Polis :Polis
+    public class Inventory_Polis
     {
         public int Nycklar
         {
@@ -40,8 +40,7 @@ namespace TjuvOchPolis
         }
     }
 
-    public class Inventory_Medborgare: Medborgare
-    {
+    public class Inventory_Medborgare 
         public int Nycklar
         {
             get => default;
@@ -75,7 +74,7 @@ namespace TjuvOchPolis
         }
     }
 
-    public class Inventory_Tjuv : Tjuv
+    public class Inventory_Tjuv 
     {
         public int Nycklar
         {

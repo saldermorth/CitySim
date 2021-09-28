@@ -8,8 +8,8 @@ namespace TjuvOchPolis
 {
     public class Polis : NPC
     {
-        public enum Direction { UP, UPLeft, UpRight,
-                                Down, DownLeft, DownRight,
-                                Left, Right}
+        public Polis(int[] _location, int _direction, string[] _inventory, char _nPC_TYPE) : base(_location, _direction, _inventory, _nPC_TYPE)
+        {
+        }
     }
 }

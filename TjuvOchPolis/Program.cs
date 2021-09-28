@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CitySimLibrary.Models.NPCs;
+using System;
 
 namespace TjuvOchPolis
 {
@@ -6,7 +7,8 @@ namespace TjuvOchPolis
     {
         static void Main(string[] args)
         {
-            Polis Five0 = new Polis();
+            NPC[] Citizens = new NPC[10];
+            
             
         }
     }
