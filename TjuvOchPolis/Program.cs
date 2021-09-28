@@ -13,13 +13,8 @@ namespace TjuvOchPolis
 
             DrawingCity builder = new DrawingCity();
             Logic logic = new Logic();
+            builder.BlockDrawer();
             
-            
-            foreach (var item in Populus)
-            {
-                Console.WriteLine($"{item.NPC_TYPE } + {item.Direction}"  );
-            }
-            logic.CollisonChecker(Populus);
 
         }
     }

@@ -10,17 +10,27 @@ namespace CitySimLibrary.Models.NPCs
     {
         private enum DirectionEnum { Up, UpLeft, UpRight, Left, Right, Down, DownLeft, DownRight }
         
+        public int Id { get; set; }
         public Location Location { get; set ;  }
         public int Direction { get; set ;  }
         public string[] Inventory { get ; set  ; }
         public char NPC_TYPE { get; set; }
-
+        private static int counter = 1;
         public NPC()
         {
+
+            Id = ID(ref counter);
             Location = GiveLocation();
             Direction = GiveDirection();
             Inventory = ShowInventory();
             NPC_TYPE = CitizenType();
+        }
+        public static int ID(ref int i)
+        {
+            
+            i++;
+
+            return i;
         }
         public char CitizenType()
         {
@@ -44,7 +54,7 @@ namespace CitySimLibrary.Models.NPCs
         public List<NPC> MakeAllNPC()
         {
             List<NPC> Populus = new List<NPC>();
-            for (int i = 0; i < 500000; i++)
+            for (int i = 0; i < 5000; i++)
             {
                 NPC test = new NPC();
                 Populus.Add(test);
@@ -59,14 +69,17 @@ namespace CitySimLibrary.Models.NPCs
            
             return dir;
         }
-
+        /// <summary>
+        /// Initiatez a location based on a grid system. A - 
+        /// </summary>
+        /// <returns></returns>
         public Location GiveLocation()
         {
             Location location = new Location('A',1);
             Random rnd = new Random();
 
-            location.GridChar = Convert.ToChar(rnd.Next(41, 59));
-            location.GridInt  = rnd.Next(1, 30);
+            location.GridChar = Convert.ToChar(rnd.Next(65, 82));
+            location.GridInt  = rnd.Next(1, 7);
             return location;
 
         }
