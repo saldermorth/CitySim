@@ -8,7 +8,13 @@ namespace TjuvOchPolis
 {
     public class DrawingNPCs
     {
-        public  int[] NPCPlacer(NPC person)
+
+        public void NPCWriter(int[] grid)
+        {
+            Console.SetCursorPosition(grid[0], grid[1]);
+            Console.Write("T");
+        }
+        public void NPCPlacer(NPC person)
         {
             int[] pos = new int[2];
             char one = person.Location.GridChar;
@@ -101,7 +107,8 @@ namespace TjuvOchPolis
 
             pos[0] = xPos;
             pos[1] = yPos;
-            return pos;
+            NPCWriter(pos);
+
         }
     }
 }
