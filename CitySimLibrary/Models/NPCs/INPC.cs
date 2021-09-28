@@ -9,9 +9,9 @@ namespace CitySimLibrary
 {
     interface INPC
     {
-        void ShowInventory(NPC person);
-        void GiveLocation(NPC person);
-        void GiveDirection(NPC person);
-        void MakeAllNPC(NPC person);
+        void ShowInventory();
+        void GiveLocation(       );
+        void GiveDirection();
+        void MakeAllNPC();
     }
 }

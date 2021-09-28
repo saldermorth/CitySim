@@ -5,36 +5,95 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CitySimLibrary.Models.NPCs
-{   enum direction { Up, UpLeft, UpRight, Left, Right, Down, DownLeft, DownRight }
-    public abstract class NPC : INPC
+{   
+    public class NPC : INPC
     {
-        public int[] Location { get; set; }
-        public int Direction { get; set; }
-        public string[] Inventory { get; set; }
+        private enum DirectionEnum { Up, UpLeft, UpRight, Left, Right, Down, DownLeft, DownRight }
+        
+        public Location Location { get; set ;  }
+        public int Direction { get; set ;  }
+        public string[] Inventory { get ; set  ; }
         public char NPC_TYPE { get; set; }
 
-        public NPC(int[] _location, int _direction, string[] _inventory, char _nPC_TYPE)
+        public NPC()
         {
-            Location = _location;
-            Direction = _direction;
-            Inventory = _inventory;
-            NPC_TYPE = _nPC_TYPE;
+            Location = GiveLocation();
+            Direction = GiveDirection();
+            Inventory = ShowInventory();
+            NPC_TYPE = CitizenType();
         }
-        public void MakeAllNPC(NPC person)
+        public char CitizenType()
         {
+            char Char =' ';
+            Random rnd = new Random();
+            int temp = rnd.Next(1, 4);
+            switch (temp)
+            {
+                case 1:
+                    Char = 'P';
+                    break;
+                case 2:
+                    Char = 'T';
+                    break;
+                case 3:
+                    Char = 'M';
+                    break;                
+            }
+            return Char;
+        }
+        public List<NPC> MakeAllNPC()
+        {
+            List<NPC> Populus = new List<NPC>();
+            for (int i = 0; i < 500000; i++)
+            {
+                NPC test = new NPC();
+                Populus.Add(test);
+
+            }
+            return Populus;
+        }
+        public int GiveDirection()
+        {
+            Random rnd = new Random();
+            int dir = rnd.Next(0, 7);
+           
+            return dir;
+        }
+
+        public Location GiveLocation()
+        {
+            Location location = new Location('A',1);
+            Random rnd = new Random();
+
+            location.GridChar = Convert.ToChar(rnd.Next(41, 59));
+            location.GridInt  = rnd.Next(1, 30);
+            return location;
 
         }
-        public void GiveDirection(NPC person)
+
+        public string[] ShowInventory()
+        {
+            string[] tmp = {"Nycklar", "Mobil", "Pengar", "Klocka" };
+            //TODO -MakeClass
+            return tmp;
+        }
+
+        void INPC.GiveDirection()
         {
             throw new NotImplementedException();
         }
 
-        public void GiveLocation(NPC person)
+        void INPC.GiveLocation()
         {
             throw new NotImplementedException();
         }
 
-        public void ShowInventory(NPC person)
+        void INPC.ShowInventory()
+        {
+            throw new NotImplementedException();
+        }
+
+        void INPC.MakeAllNPC()
         {
             throw new NotImplementedException();
         }
