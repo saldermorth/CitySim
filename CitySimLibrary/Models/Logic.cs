@@ -92,22 +92,88 @@ namespace TjuvOchPolis
         
         public void CollisonChecker(List<NPC> Citizens)//Linq probebile solution
         {
+
+
+
+            for (int i = 0; i < Citizens.Count; i++)
+            {
+                
+
+                for (int j = 0; j < Citizens.Count; j++)
+                {
+                    string S = Citizens[i].Grid;
+                    if (S == Citizens[j].Grid)
+                    {
+                        if (Citizens[i].Id != Citizens[j].Id)
+                        {
+                            Console.WriteLine("Test");
+                        }
+                        
+                    }
+
+                }
+            }
+            //List<NPC> npcInConflict = new List<NPC>();
+            //foreach (var collection in Citizens)
+            //{
+                
+            //    foreach (var item in collection.Grid)
+            //    {
+            //        if (collection.Grid == )
+            //        {
+            //            if (collection.Id != item.Id)
+            //            {
+            //                npcInConflict.Add(collection);
+                            
+            //            }
+                        
+            //        }
+            //    }
+            //    List<NPC> SortedList = npcInConflict.OrderBy(o => o.Id).ToList();
+                
+            //    foreach (var pers in SortedList)
+            //    {
+            //        Console.WriteLine($"|ID :{pers.Id} + |Type :{pers.NPC_TYPE} " +
+            //            $"|Grid :{pers.Grid}");
+            //    }
+                   
+            //}
+
+
+
+
+
+            foreach (var collection in Citizens)  // Outer loop
+            {
+                // Code that should run for each collection
+
+                foreach (var item in collection.Grid)  // Inner loop
+                {
+                    // Code that should run for each item
+                }
+            }
+
+
+
+
+
+
             //var uniqueValues = Citizens.Select(k => k.Grid) MAll
             //      .GroupBy(g => g)
             //      .Where(c => c.Count() == 1)
             //      .Select(k => k.Key)
             //      .ToList();
 
-            var uniqueValues = myItems.Select(k => k.MyProperty)
-                  .GroupBy(g => g)
-                  .Where(c => c.Count() == 1)
-                  .Select(k => k.Key)
-                  .To();
+            //var uniqueValues = myItems.Select(k => k.MyProperty)
+            //      .GroupBy(g => g)
+            //      .Where(c => c.Count() == 1)
+            //      .Select(k => k.Key)
+            //      .To();
 
-            foreach (var item in uniqueValues)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in uniqueValues)
+            //{
+            //    Console.WriteLine(item);
+            //}
             //var collList = Citizens;
             //List<NPC> uniques = new List<NPC>();
             //foreach (var item in Citizens)
