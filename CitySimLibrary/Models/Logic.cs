@@ -93,7 +93,7 @@ namespace TjuvOchPolis
         public void CollisonChecker(List<NPC> Citizens)//Linq probebile solution
         {
 
-
+            List<NPC> inConflict = new List<NPC>();
 
             for (int i = 0; i < Citizens.Count; i++)
             {
@@ -106,12 +106,18 @@ namespace TjuvOchPolis
                     {
                         if (Citizens[i].Id != Citizens[j].Id)
                         {
+                            inConflict.Add(Citizens[j]);
                             Console.WriteLine("Test");
                         }
                         
                     }
 
                 }
+            }
+            
+            foreach (var item in inConflict)
+            {
+                Console.WriteLine($"ID :{item.Id}| Grid:{item.Grid}| Type: {item.NPC_TYPE}");
             }
             //List<NPC> npcInConflict = new List<NPC>();
             //foreach (var collection in Citizens)
