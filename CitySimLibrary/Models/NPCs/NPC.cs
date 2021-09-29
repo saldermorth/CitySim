@@ -54,7 +54,7 @@ namespace CitySimLibrary.Models.NPCs
         public List<NPC> MakeAllNPC()
         {
             List<NPC> Populus = new List<NPC>();
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 50; i++) // Number of npcs
             {
                 NPC test = new NPC();
                 Populus.Add(test);
@@ -78,8 +78,9 @@ namespace CitySimLibrary.Models.NPCs
             Location location = new Location('A',1);
             Random rnd = new Random();
 
-            location.GridChar = Convert.ToChar(rnd.Next(65, 82));
-            location.GridInt  = rnd.Next(1, 7);
+            location.GridChar = Convert.ToChar(rnd.Next(65, 83));
+            location.GridInt  = rnd.Next(1, 9);
+
             return location;
 
         }

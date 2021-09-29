@@ -19,39 +19,45 @@ namespace TjuvOchPolis
             int[] pos = new int[2];
             char one = person.Location.GridChar;
             int two = person.Location.GridInt;
-            int xPos = 1;
+            int xPos = 130;
             int yPos = 1;
 
-            switch (two)
+            switch (two)//Y Axis
             {
+                case 0:
+                    yPos = 1;
+                    break;
                 case 1:
                     yPos = 2;
                     break;
                 case 2:
-                    yPos = 5;
+                    yPos = 6;
                     break;
                 case 3:
-                    yPos = 8;
+                    yPos = 10;
                     break;
                 case 4:
-                    yPos = 11;
+                    yPos = 14;
                     break;
                 case 5:
                     yPos = 14;
                     break;
                 case 6:
-                    yPos = 17;
+                    yPos = 18;
                     break;
                 case 7:
-                    yPos = 20;
-                    break;             
-                   
+                    yPos = 22;
+                    break;
+                case 8:
+                    yPos = 26;
+                    break;            
+                                            
                 
                 default:
                     break;
             }
 
-            switch (one)
+            switch (one)//X axis 
             {
                 case 'A':
                     xPos = 3;
@@ -95,18 +101,28 @@ namespace TjuvOchPolis
                 case 'N':
                     xPos = 81;
                     break;
-                case 'Q':
+                case 'O':
                     xPos = 87;
                     break;
-                case 'R':
+                case 'P':
                     xPos = 93;
                     break;
+                case 'Q':
+                    xPos = 99;
+                    break;
+                case 'R':
+                    xPos = 105;
+                    break;
+                case 'S':
+                    xPos = 110;
+                    break;
 
-                    
+                    //ToDO - Collision checker?
             }
 
             pos[0] = xPos;
             pos[1] = yPos;
+            
             NPCWriter(pos);
 
         }
