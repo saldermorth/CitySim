@@ -16,6 +16,7 @@ namespace CitySimLibrary.Models.NPCs
         public string[] Inventory { get ; set  ; }
         public char NPC_TYPE { get; set; }
         private static int counter = 1;
+        public string Grid { get; set; }
         public NPC()
         {
 
@@ -24,6 +25,7 @@ namespace CitySimLibrary.Models.NPCs
             Direction = GiveDirection();
             Inventory = ShowInventory();
             NPC_TYPE = CitizenType();
+           
         }
         public static int ID(ref int i)
         {
@@ -80,7 +82,8 @@ namespace CitySimLibrary.Models.NPCs
 
             location.GridChar = Convert.ToChar(rnd.Next(65, 83));
             location.GridInt  = rnd.Next(1, 9);
-
+            string grid = location.GridChar.ToString() + location.GridInt.ToString();
+            Grid = grid;
             return location;
 
         }

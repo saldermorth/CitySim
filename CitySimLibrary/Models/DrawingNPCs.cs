@@ -120,9 +120,12 @@ namespace TjuvOchPolis
                     //ToDO - Collision checker?
             }
 
+           
             pos[0] = xPos;
             pos[1] = yPos;
+           
             
+
             NPCWriter(pos);
 
         }

@@ -10,6 +10,7 @@ namespace TjuvOchPolis
     {
         public void Builder(NPC n)
         {
+            //TODO- Wire up
             string npc = "Polis";
             string npc2 = "Tjuv";
             string action = "Beslagtar från";
@@ -17,8 +18,8 @@ namespace TjuvOchPolis
             int arrests = 12;
 
             Console.SetCursorPosition(0, 28);
-            string s = $"{npc} {action} {npc2}";
-            string t = $"Number of stolen items: {stolen}, Number of arrests: {arrests} ";
+            string s = $"{npc} {action} {npc2 } |";
+            string t = $"Number of stolen items: {stolen}| Number of arrests: {arrests} ";
             Console.Write(s + t );
             Console.ReadKey();
 
