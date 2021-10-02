@@ -10,7 +10,7 @@ namespace CitySimLibrary
     interface INPC
     {
         void ShowInventory();
-        void GiveLocation(       );
+        void GiveLocation();
         void GiveDirection();
         void MakeAllNPC();
     }

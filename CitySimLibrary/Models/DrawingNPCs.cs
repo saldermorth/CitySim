@@ -116,15 +116,12 @@ namespace TjuvOchPolis
                 case 'S':
                     xPos = 110;
                     break;
-
-                    //ToDO - Collision checker?
+                                       
             }
-
-           
+                       
             pos[0] = xPos;
             pos[1] = yPos;
-           
-            
+                     
 
             NPCWriter(pos);
 

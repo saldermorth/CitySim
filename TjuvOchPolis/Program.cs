@@ -17,30 +17,14 @@ namespace TjuvOchPolis
             Logic logic = new Logic();
             logic.CollisonChecker(Populus);
 
-
-
            
             Console.ReadKey();
             do
             {
-               ;
-                //Console.Clear();
-                //builder.BlockDrawer();
-                //foreach (var item in Populus)
-                //{
-                //    placer.NPCPlacer(item);
-                //}
-                //foreach (var item in Populus)
-                //{
-                //    logic.NPCMover(item);
-                //}
-                //Thread.Sleep(500);
-                
-                //logic.CollisonChecker(Populus);
+            
             } while (true);
             
-            
-            
+                     
             
 
             Console.ReadKey();
