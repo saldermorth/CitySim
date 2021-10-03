@@ -56,7 +56,7 @@ namespace CitySimLibrary.Models.NPCs
         public List<NPC> MakeAllNPC()
         {
             List<NPC> Populus = new List<NPC>();
-            for (int i = 0; i < 12; i++) // Number of npcs
+            for (int i = 0; i < 40 ; i++) // Number of npcs
             {
                 NPC test = new NPC();
                 Populus.Add(test);

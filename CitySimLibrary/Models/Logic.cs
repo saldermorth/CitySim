@@ -16,6 +16,8 @@ namespace TjuvOchPolis
             List<NPC> Populus = main.MakeAllNPC();
             DrawingCity city = new DrawingCity();
             DrawingNPCs npcs = new DrawingNPCs();
+            Saver logg = new Saver(0,0);
+            
             
             Console.WriteLine("Press ESC to stop");
             do
@@ -27,13 +29,12 @@ namespace TjuvOchPolis
                     city.GridDrawer();
                     
                     foreach (var person in Populus)
-                    {
-                        
+                    {                        
                         npcs.NPCPlacer(person);
                         NPCMover(person);
                     }
                     CollisonChecker(Populus);
-                    Console.ReadKey();
+                    Thread.Sleep(500);
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
@@ -185,11 +186,7 @@ namespace TjuvOchPolis
 
                 }
             }
-
-            //foreach (var item in inConflict)
-            //{
-            //    Console.WriteLine($"ID :{item.Id}| Grid:{item.Grid}| Type: {item.NPC_TYPE}");
-            //}
+                       
            
         }
 
