@@ -8,21 +8,45 @@ namespace TjuvOchPolis
 {
     public class HUD
     {
-        public void Builder(NPC n)
+        public static void Builder(string typeOfIncounter,  int itemsStolen,  int tjuvArrested)//string event int count of events.
         {
-            //TODO- Wire up
-            string npc = "Polis";
-            string npc2 = "Tjuv";
-            string action = "Beslagtar från";
-            int stolen = 2;
-            int arrests = 12;
+            
 
             Console.SetCursorPosition(0, 28);
-            string s = $"{npc} {action} {npc2 } |";
-            string t = $"Number of stolen items: {stolen}| Number of arrests: {arrests} ";
+            string s = $"{typeOfIncounter}  |";
+            string t = $"Number of stolen items: {itemsStolen}| Number of arrests: {tjuvArrested} ";
             Console.Write(s + t );
             Console.ReadKey();
 
+        }
+        public void HUDWriter(int typeOfIncounter)
+        {
+            
+            switch (typeOfIncounter)
+            {
+                
+                case 1:
+                    Builder("Polis griper tjuv, stöldgods beslagtas",0,1);
+                    break;
+                case 2:
+                    Builder("Polis griper tjuv, stöldgods beslagtas", 0, 1);
+                    break;
+                case 3:
+                    Builder("Tjuv rånar medborgare",1,0);
+                    break;
+                case 4:
+                    Builder("Tjuv rånar medborgare", 1, 0);
+                    break;
+                case 5:
+                    Builder("Polis hälsar på medborgare", 0, 0 );
+                    break;
+                case 6:
+                    Builder("Polis hälsar på medborgare", 0, 0);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }

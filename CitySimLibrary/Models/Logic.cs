@@ -10,6 +10,43 @@ namespace TjuvOchPolis
 {
     public class Logic
     {
+        public void Run()
+        {
+            NPC main = new NPC();
+            List<NPC> Populus = main.MakeAllNPC();
+            DrawingCity city = new DrawingCity();
+            DrawingNPCs npcs = new DrawingNPCs();
+            
+            Console.WriteLine("Press ESC to stop");
+            do
+            {
+                while (!Console.KeyAvailable)
+                {
+                    Console.Clear();
+                    city.BlockDrawer();
+                    city.GridDrawer();
+                    
+                    foreach (var person in Populus)
+                    {
+                        
+                        npcs.NPCPlacer(person);
+                        NPCMover(person);
+                    }
+                    CollisonChecker(Populus);
+                    Console.ReadKey();
+                }
+            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+
+            
+            
+            
+            
+            
+
+            
+
+
+        }
         public void Logics()
         {
 
@@ -90,16 +127,13 @@ namespace TjuvOchPolis
             return one;
         }
         
-        public void CollisonChecker(List<NPC> Citizens)//Linq probebile solution
+        public void CollisonChecker(List<NPC> Citizens)
         {
-
-
             List<NPC> inConflict = new List<NPC>();
+            HUD writer = new HUD();
 
             for (int i = 0; i < Citizens.Count; i++)
             {
-
-
                 for (int j = 0; j < Citizens.Count; j++)
                 {
                     string S = Citizens[i].Grid;
@@ -107,38 +141,44 @@ namespace TjuvOchPolis
                     {
                         if (Citizens[i].Id != Citizens[j].Id)
                         {
-                            if (Citizens[i].CitizenType == Citizens[j].CitizenType)
+                            if (Citizens[i].NPC_TYPE == Citizens[j].NPC_TYPE)
                             {
-
+                                //Same type if citizen dose nothing
                             }
-                            else if (Citizens[i].CitizenType == P && Citizens[j].CitizenType == T)
+                            else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'T')
                             {
                                 //To do - skriv ut tjuv gripen 
+                                writer.HUDWriter(1);
                             }
-                            else if (Citizens[i].CitizenType == T && Citizens[j].CitizenType == P)
+                            else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'P')
                             {
                                 //To do - skriv ut tjuv gripen
+                                writer.HUDWriter(2);
                             }
-                            else if (Citizens[i].CitizenType == T && Citizens[j].CitizenType == M)
+                            else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'M')
                             {
                                 //To do - medborgare rånad
+                                writer.HUDWriter(3);
                             }
-                            else if (Citizens[i].CitizenType == M && Citizens[j].CitizenType == T)
+                            else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'T')
                             {
                                 //To do - medborgare rånad
+                                writer.HUDWriter(4);
                             }
-                            else if (Citizens[i].CitizenType == P && Citizens[j].CitizenType == M)
+                            else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'M')
                             {
-                                //To do - Polis hälsar på polis
+                                 //To do - Polis hälsar på polis
+                                writer.HUDWriter(5);
                             }
-                            else (Citizens[i].CitizenType == M && Citizens[j].CitizenType == P)
+                            else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'P')
                             {
-                                //To do - Polis hälsar på polis
+                                Console.WriteLine();//To do - Polis hälsar på polis
+                                writer.HUDWriter(6);
                             }
 
 
                             inConflict.Add(Citizens[j]);
-                            Console.WriteLine("Test");
+                            
                         }
 
                     }
@@ -146,10 +186,10 @@ namespace TjuvOchPolis
                 }
             }
 
-            foreach (var item in inConflict)
-            {
-                Console.WriteLine($"ID :{item.Id}| Grid:{item.Grid}| Type: {item.NPC_TYPE}");
-            }
+            //foreach (var item in inConflict)
+            //{
+            //    Console.WriteLine($"ID :{item.Id}| Grid:{item.Grid}| Type: {item.NPC_TYPE}");
+            //}
            
         }
 

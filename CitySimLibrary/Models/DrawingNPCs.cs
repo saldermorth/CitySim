@@ -9,10 +9,26 @@ namespace TjuvOchPolis
     public class DrawingNPCs
     {
 
-        public void NPCWriter(int[] grid)
+        public void NPCWriter(NPC person, int[] pos)
         {
-            Console.SetCursorPosition(grid[0], grid[1]);
-            Console.Write("T");
+            Console.SetCursorPosition(pos[0], pos[1]);
+            switch (person.NPC_TYPE)
+            {
+                case 'P':
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case 'M':
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
+                case 'T':
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+               
+            }
+            
+            Console.Write(person.NPC_TYPE);
+            Console.ForegroundColor = ConsoleColor.Gray;
+
         }
         public void NPCPlacer(NPC person)
         {
@@ -119,11 +135,11 @@ namespace TjuvOchPolis
                                        
             }
                        
-            pos[0] = xPos;
+            pos[0]= xPos;
             pos[1] = yPos;
                      
 
-            NPCWriter(pos);
+            NPCWriter(person, pos);
 
         }
     }
