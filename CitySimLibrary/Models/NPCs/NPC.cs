@@ -13,7 +13,8 @@ namespace CitySimLibrary.Models.NPCs
         public int Id { get; set; }
         public Location Location { get; set ;  }
         public int Direction { get; set ;  }
-        public string[] Inventory { get ; set  ; }
+        // public Inventorys inventory { get; set; }
+        public List<String> Inventory { get; set; }
         public char NPC_TYPE { get; set; }
         private static int counter = 1;
         public string Grid { get; set; }
@@ -22,10 +23,10 @@ namespace CitySimLibrary.Models.NPCs
 
             Id = ID(ref counter);
             Location = GiveLocation();
-            Direction = GiveDirection();
-            Inventory = ShowInventory();
+            Direction = GiveDirection();            
             NPC_TYPE = CitizenType();
-           
+            Inventory = ;
+
         }
         public static int ID(ref int i)
         {
@@ -56,11 +57,11 @@ namespace CitySimLibrary.Models.NPCs
         public List<NPC> MakeAllNPC()
         {
             List<NPC> Populus = new List<NPC>();
-            for (int i = 0; i < 40 ; i++) // Number of npcs
+            for (int i = 0; i <45 ; i++) // Number of npcs
             {
                 NPC test = new NPC();
                 Populus.Add(test);
-
+                MakeInventory(Populus[i]);
             }
             return Populus;
         }
@@ -88,11 +89,17 @@ namespace CitySimLibrary.Models.NPCs
 
         }
 
-        public string[] ShowInventory()
+        public NPC MakeInventory(NPC n)
         {
-            string[] tmp = {"Nycklar", "Mobil", "Pengar", "Klocka" };
-            //TODO -MakeClass
-            return tmp;
+            
+            if (this.NPC_TYPE == 'M')
+            {
+                n.Inventory.Add("Klocka");
+                n.Items.("Mobil");
+                n.inventory.Add("Pengar");
+                n.inventory.Add("Nycklar");
+            }
+            return n;
         }
 
         void INPC.GiveDirection()

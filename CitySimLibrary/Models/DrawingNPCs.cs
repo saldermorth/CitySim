@@ -11,7 +11,7 @@ namespace TjuvOchPolis
 
         public void NPCWriter(NPC person, int[] pos)
         {
-            Console.SetCursorPosition(pos[0], pos[1]);
+            Console.SetCursorPosition(pos[0], pos[1]); // Todo - sometimes goes out of bounds
             switch (person.NPC_TYPE)
             {
                 case 'P':
@@ -35,7 +35,7 @@ namespace TjuvOchPolis
             int[] pos = new int[2];
             char one = person.Location.GridChar;
             int two = person.Location.GridInt;
-            int xPos = 130;
+            int xPos = 110;
             int yPos = 1;
 
             switch (two)//Y Axis
@@ -130,9 +130,9 @@ namespace TjuvOchPolis
                     xPos = 105;
                     break;
                 case 'S':
-                    xPos = 110;
+                    xPos = 105;
                     break;
-                                       
+
             }
                        
             pos[0]= xPos;

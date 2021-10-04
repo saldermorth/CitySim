@@ -8,15 +8,11 @@ namespace TjuvOchPolis
     public class DrawingCity
     {
         public void BlockDrawer()
-        {
-            int CursorPosX = 0;
-            int CursorPosY = 0;
-
+        {            
             int MaxWidth = Console.WindowWidth;
             int MaxHeight = Console.WindowHeight;
             int UpperLeft = 1;
-            int lowerRight = 6;
-
+           
             for (int i = UpperLeft; i < 110; i++)
             {
                 if (i % 6 == 0)

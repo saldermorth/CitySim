@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace TjuvOchPolis
+namespace CitySimLibrary.Models.NPCs.Inventory
 {
-    public class Inventory_Polis
+    class Beslagtaget 
     {
-       
         
     }
 }

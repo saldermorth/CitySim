@@ -12,6 +12,8 @@ namespace TjuvOchPolis
     {
         public void Run()
         {
+            Console.SetWindowSize(110, 30);
+            Saver save = new Saver(0, 0);
             NPC main = new NPC();
             List<NPC> Populus = main.MakeAllNPC();
             DrawingCity city = new DrawingCity();
@@ -33,8 +35,8 @@ namespace TjuvOchPolis
                         npcs.NPCPlacer(person);
                         NPCMover(person);
                     }
-                    CollisonChecker(Populus);
-                    Thread.Sleep(500);
+                    CollisonChecker(save, Populus);
+                    
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
@@ -128,7 +130,7 @@ namespace TjuvOchPolis
             return one;
         }
         
-        public void CollisonChecker(List<NPC> Citizens)
+        public void CollisonChecker(Saver save, List<NPC> Citizens)
         {
             List<NPC> inConflict = new List<NPC>();
             HUD writer = new HUD();
@@ -142,6 +144,7 @@ namespace TjuvOchPolis
                     {
                         if (Citizens[i].Id != Citizens[j].Id)
                         {
+                            Thread.Sleep(800);
                             if (Citizens[i].NPC_TYPE == Citizens[j].NPC_TYPE)
                             {
                                 //Same type if citizen dose nothing
@@ -149,32 +152,32 @@ namespace TjuvOchPolis
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'T')
                             {
                                 //To do - skriv ut tjuv gripen 
-                                writer.HUDWriter(1);
+                                writer.HUDWriter(save, 1);
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'P')
                             {
                                 //To do - skriv ut tjuv gripen
-                                writer.HUDWriter(2);
+                                writer.HUDWriter(save, 2);
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'M')
                             {
                                 //To do - medborgare rånad
-                                writer.HUDWriter(3);
+                                writer.HUDWriter(save, 3);
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'T')
                             {
                                 //To do - medborgare rånad
-                                writer.HUDWriter(4);
+                                writer.HUDWriter(save, 4);
                             }
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'M')
                             {
                                  //To do - Polis hälsar på polis
-                                writer.HUDWriter(5);
+                                writer.HUDWriter(save, 5);
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'P')
                             {
                                 Console.WriteLine();//To do - Polis hälsar på polis
-                                writer.HUDWriter(6);
+                                writer.HUDWriter(save, 6);
                             }
 
 
