@@ -1,75 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TjuvOchPolis.Medborgare" Collapsed="true">
-    <Position X="6.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\NPCs\Medborgare.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TjuvOchPolis.Polis" Collapsed="true">
-    <Position X="2.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\NPCs\Polis.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TjuvOchPolis.Tjuv" Collapsed="true">
-    <Position X="4.25" Y="3.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\NPCs\Tjuv.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TjuvOchPolis.Batman" Collapsed="true">
-    <Position X="8.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Batman.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TjuvOchPolis.DrawingCity" Collapsed="true">
-    <Position X="5.75" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAE=</HashCode>
-      <FileName>Models\DrawingCity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TjuvOchPolis.DrawingNPCs" Collapsed="true">
-    <Position X="7.5" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAABA=</HashCode>
-      <FileName>Models\DrawingNPCs.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TjuvOchPolis.Saver" Collapsed="true">
-    <Position X="15.5" Y="1" Width="1.5" />
+    <Position X="18.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Logger.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TjuvOchPolis.Logic" Collapsed="true">
-    <Position X="4" Y="1" Width="1.5" />
+  <Class Name="TjuvOchPolis.DrawingCity" Collapsed="true">
+    <Position X="14.75" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgCAAAAAAIAI=</HashCode>
-      <FileName>Models\Logic.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Models\Graphics\DrawingCity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TjuvOchPolis.DrawingNPCs" Collapsed="true">
+    <Position X="16.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAABA=</HashCode>
+      <FileName>Models\Graphics\DrawingNPCs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TjuvOchPolis.HUD" Collapsed="true">
-    <Position X="2.25" Y="1" Width="1.5" />
+    <Position X="18.25" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\HUD.cs</FileName>
+      <FileName>Models\Graphics\HUD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TjuvOchPolis.Medborgare" Collapsed="true">
+    <Position X="12.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NPCs\Medborgare.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TjuvOchPolis.Polis" Collapsed="true">
+    <Position X="7.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NPCs\Polis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TjuvOchPolis.Tjuv" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NPCs\Tjuv.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TjuvOchPolis.Logic" Collapsed="true">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAIAI=</HashCode>
+      <FileName>Models\Logic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CitySimLibrary.Models.Location" Collapsed="true">
+    <Position X="14.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NPCs\Location.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CitySimLibrary.Models.NPCs.NPC" Collapsed="true">
-    <Position X="4.25" Y="2.25" Width="1.5" />
+    <Position X="10" Y="2" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAoEQABAIgAAAACIAAQAACAAAAAFCAAAAGAAAAAA=</HashCode>
+      <HashCode>AAACAoAQABIIgAAAACIAAQAACAAAAAFCAAAAGgAAAAA=</HashCode>
       <FileName>Models\NPCs\NPC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Interface Name="CitySimLibrary.INPC" Collapsed="true">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIEAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\NPCs\INPC.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

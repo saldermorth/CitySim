@@ -8,10 +8,14 @@ namespace TjuvOchPolis
 {
     public class DrawingNPCs
     {
-
+        /// <summary>
+        /// Places NPCs on playing field. In different colors baed on type.
+        /// </summary>
+        /// <param name="person"></param>
+        /// <param name="pos"></param>
         public void NPCWriter(NPC person, int[] pos)
         {
-            Console.SetCursorPosition(pos[0], pos[1]); // Todo - sometimes goes out of bounds
+            Console.SetCursorPosition(pos[0], pos[1]); 
             switch (person.NPC_TYPE)
             {
                 case 'P':
@@ -30,6 +34,10 @@ namespace TjuvOchPolis
             Console.ForegroundColor = ConsoleColor.Gray;
 
         }
+        /// <summary>
+        /// Translate grid to actual place on screen.
+        /// </summary>
+        /// <param name="person"></param>
         public void NPCPlacer(NPC person)
         {
             int[] pos = new int[2];

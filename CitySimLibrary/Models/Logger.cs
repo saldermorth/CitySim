@@ -5,7 +5,9 @@ using System.Text;
 
 namespace TjuvOchPolis
 {
-    
+    /// <summary>
+    /// Keeps stats in memory.
+    /// </summary>
     public class Saver
     {
         public int stolenItems { get; set; }

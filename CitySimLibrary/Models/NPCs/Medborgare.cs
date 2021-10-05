@@ -9,8 +9,7 @@ namespace TjuvOchPolis
 {
     public class Medborgare : NPC
     {
-        //Inventorys items = new Inventorys();
-        //Tillhörigheter items = new Tillhörigheter();
+       
         public Medborgare()
         {
 

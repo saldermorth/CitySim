@@ -7,6 +7,9 @@ namespace TjuvOchPolis
 {
     public class DrawingCity
     {
+        /// <summary>
+        /// Prints a grid of blocks on the screen.
+        /// </summary>
         public void BlockDrawer()
         {            
             int MaxWidth = Console.WindowWidth;
@@ -15,7 +18,7 @@ namespace TjuvOchPolis
            
             for (int i = UpperLeft; i < 110; i++)
             {
-                if (i % 6 == 0)
+                if (i % 6 == 0) //Empty space
                 {
 
                 }
@@ -39,6 +42,9 @@ namespace TjuvOchPolis
 
             }
         }
+        /// <summary>
+        /// Prints a grid on the screen
+        /// </summary>
         public void GridDrawer()
         {
             int CursorPosX = 0;

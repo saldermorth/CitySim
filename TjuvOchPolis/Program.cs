@@ -10,12 +10,8 @@ namespace TjuvOchPolis
     {
         static void Main(string[] args)
         {
-            
-
             Logic DO = new Logic();
-            DO.Run();
-                   
-                                  
+            DO.Run();             
         }
     }
 }

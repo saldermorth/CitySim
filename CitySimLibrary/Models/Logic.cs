@@ -15,10 +15,9 @@ namespace TjuvOchPolis
         {
         
             Console.SetWindowSize(110, 30);
+
             Saver save = new Saver(0, 0);
             NPC main = new NPC();
-            //List<NPC> Populus = main.MakeAllNPC();
-            
             DrawingCity city = new DrawingCity();
             DrawingNPCs npcs = new DrawingNPCs();
             Saver logg = new Saver(0,0);
@@ -43,48 +42,23 @@ namespace TjuvOchPolis
                 i.Id = counter;
                 counter++;
                 i.Grid = main.GiveGrid();
-                if (i.Id <50)
+                if (i.Id < 50)
                 {
                     i.NPC_TYPE = 'M';
                     i.Inventory = med.MakeInventory();
                 }
-                else if (i.Id > 50 && i.Id <65)
+                else if (i.Id > 50 && i.Id < 65)
                 {
-                  i.NPC_TYPE = 'P';
+                    i.NPC_TYPE = 'P';
                     i.Inventory = pol.MakeInventory();
                 }
                 else
                 {
                     i.NPC_TYPE = 'T';
-                   i.Inventory = tju.MakeInventory();
+                    i.Inventory = tju.MakeInventory();
                 }
 
-            }
-            //for (int i = 1; i < 50; i++)
-            //{
-            //    Populus[i].Location = main.GiveLocation();
-            //    Populus[i].Direction = main.GiveDirection();
-            //    Populus[i].Id = counter;
-            //    counter++;
-            //    Populus[i].Grid = main.GiveGrid();
-            //    if (i < 25)
-            //    {
-            //        Populus[i].NPC_TYPE = 'M';
-            //        Populus[i].Inventory = med.MakeInventory();
-            //    }
-            //    else if (i>25 && i <35)
-            //    {
-            //        Populus[i].NPC_TYPE = 'P';
-            //        Populus[i].Inventory = pol.MakeInventory();
-            //    }
-            //    else
-            //    {
-            //        Populus[i].NPC_TYPE = 'T';
-            //        Populus[i].Inventory = tju.MakeInventory();
-            //    }
-
-
-            //}
+            }           
             
             Console.WriteLine("Press ESC to stop");
             do
@@ -94,39 +68,21 @@ namespace TjuvOchPolis
                     Console.Clear();
                     city.BlockDrawer();
                     city.GridDrawer();
-                    
+
                     foreach (var person in Populus)
-                    {                        
+                    {
                         npcs.NPCPlacer(person);
                         NPCMover(person);
                     }
                     CollisonChecker(save, Populus);
-                    
+
                 }
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
-            
-            
-            
-            
-            
-
-            
-
-
         }
-        public void Logics()
-        {
-
-
-        }
-        public void Meny()
-        {
-
-
-        }
+        
         /// <summary>
-        /// Modifies the x and y coordinates. By number of Direction
+        /// Modifies the x and y coordinates. By number of Direction.
         /// </summary>
         /// <param name="one"></param>
         /// <returns></returns>
@@ -194,7 +150,12 @@ namespace TjuvOchPolis
             one.Location.GridChar = ((char)xPos);
             return one;
         }
-        
+
+        /// <summary>
+        /// Decides what happens when citizens interact.
+        /// </summary>
+        /// <param name="save"></param>
+        /// <param name="Citizens"></param>
         public void CollisonChecker(Saver save, List<NPC> Citizens)
         {
             List<NPC> inConflict = new List<NPC>();
@@ -216,7 +177,7 @@ namespace TjuvOchPolis
                             }
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'T')
                             {
-                                if (Citizens[j].Inventory.Count>0)
+                                if (Citizens[j].Inventory.Count > 0)
                                 {
                                     Citizens[i].Inventory = Citizens[j].Inventory.GetRange(0, Citizens[j].Inventory.Count);
                                     Citizens[j].Inventory.Clear();
@@ -227,17 +188,17 @@ namespace TjuvOchPolis
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'P')
                             {
-                                if (Citizens[i].Inventory.Count >0)
+                                if (Citizens[i].Inventory.Count > 0)
                                 {
                                     Citizens[j].Inventory = Citizens[i].Inventory.GetRange(0, Citizens[i].Inventory.Count);
-                                    Citizens[i].Inventory.Clear();                                    
+                                    Citizens[i].Inventory.Clear();
                                     writer.HUDWriter(save, 2);
                                 }
-                                
+
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'M')
                             {
-                                if (Citizens[j].Inventory.Count>0)
+                                if (Citizens[j].Inventory.Count > 0)
                                 {
                                     Citizens[i].Inventory = Citizens[j].Inventory.GetRange(0, 1);
                                     Citizens[j].Inventory.RemoveAt(0);
@@ -248,7 +209,7 @@ namespace TjuvOchPolis
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'T')
                             {
-                                if (Citizens[i].Inventory.Count >0)
+                                if (Citizens[i].Inventory.Count > 0)
                                 {
                                     Citizens[j].Inventory = Citizens[i].Inventory.GetRange(0, 1);
                                     Citizens[i].Inventory.RemoveAt(0);
@@ -258,7 +219,7 @@ namespace TjuvOchPolis
                             }
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'M')
                             {
-                                 
+
                                 writer.HUDWriter(save, 5);
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'P')
@@ -268,16 +229,16 @@ namespace TjuvOchPolis
                             }
 
                             inConflict.Add(Citizens[j]);
-                            
+
                         }
 
                     }
 
                 }
             }
-                       
-           
+
+
         }
 
-
-    }   }
+    }
+}
