@@ -21,16 +21,14 @@ namespace TjuvOchPolis
             
             return Char;
         }
-        public virtual List<string> MakeInventory()
+        public new virtual List<string> MakeInventory
         {
-            List<string> items = new List<string>();
+            get
+            {
+                List<string> items = new List<string>();
+                return items;
 
-            
-
-            return items;
-
-
+            }
         }
-
     }
 }

@@ -12,7 +12,7 @@ namespace TjuvOchPolis
         public Polis()
         {
             NPC_TYPE = CitizenType();
-            Inventory = MakeInventory();
+            Inventory = MakeInventory;
         }
         public Polis(int[] _location, int _direction, string[] _inventory, char _nPC_TYPE) 
         {
@@ -23,16 +23,13 @@ namespace TjuvOchPolis
             char Char = 'P';
             return Char;
         }
-        public virtual List<string> MakeInventory()
+        public new virtual List<string> MakeInventory
         {
-            List<string> items = new List<string>();
-
-                        
-
-            return items;
-
-
+            get
+            {
+                List<string> items = new List<string>();
+                return items;
+            }
         }
-
     }
 }

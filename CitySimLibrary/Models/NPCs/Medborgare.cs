@@ -16,7 +16,7 @@ namespace TjuvOchPolis
         }
         public Medborgare(int[] _location, int _direction, string[] _inventory, char _nPC_TYPE)
         {
-            Inventory = MakeInventory();
+            Inventory = MakeInventory;
             NPC_TYPE = CitizenType();
         }
         public override char CitizenType()
@@ -25,20 +25,22 @@ namespace TjuvOchPolis
             
             return Char;
         }
-        public virtual List<string> MakeInventory()
+        public new virtual List<string> MakeInventory
         {
-            List<string> items = new List<string>();
-           
-
-            items.Add("Nycklar");
-            items.Add("Klocka");
-            items.Add("Mobil");
-            items.Add("Pengar");
-
-            return items;
+            get
+            {
+                List<string> items = new List<string>();
 
 
+                items.Add("Nycklar");
+                items.Add("Klocka");
+                items.Add("Mobil");
+                items.Add("Pengar");
+
+                return items;
+
+
+            }
         }
-
     }
 }

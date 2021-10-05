@@ -26,16 +26,14 @@ namespace TjuvOchPolis
             Tjuv tju = new Tjuv();
 
             List<NPC> Populus = new List<NPC>(50);
-            for (int i = 0; i < 70; i++) // Number of npcs
+            for (int i = 0; i < 70; i++) //Creates set number of empty citizens to List.
             {
-
                 NPC test = new NPC();
-
 
                 Populus.Add(test);
                 
             }
-            foreach (var i in Populus)
+            foreach (var i in Populus)//Adds properties to citizens.
             {
                 i.Location = main.GiveLocation();
                 i.Direction = main.GiveDirection();
@@ -45,17 +43,17 @@ namespace TjuvOchPolis
                 if (i.Id < 50)
                 {
                     i.NPC_TYPE = 'M';
-                    i.Inventory = med.MakeInventory();
+                    i.Inventory = med.MakeInventory;
                 }
                 else if (i.Id > 50 && i.Id < 65)
                 {
                     i.NPC_TYPE = 'P';
-                    i.Inventory = pol.MakeInventory();
+                    i.Inventory = pol.MakeInventory;
                 }
                 else
                 {
                     i.NPC_TYPE = 'T';
-                    i.Inventory = tju.MakeInventory();
+                    i.Inventory = tju.MakeInventory;
                 }
 
             }           
