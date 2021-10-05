@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Models\NPCs\Inventory\**" />
+    <EmbeddedResource Remove="Models\NPCs\Inventory\**" />
+    <None Remove="Models\NPCs\Inventory\**" />
+  </ItemGroup>
+
 </Project>

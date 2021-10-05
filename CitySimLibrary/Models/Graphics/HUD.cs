@@ -58,7 +58,12 @@ namespace TjuvOchPolis
                 case 6:
                     Builder(save, "Polis hälsar på medborgare", 0, 0);
                     break;
-
+                case 7:
+                    Builder(save, "Tjuv försöker råna medborgare", 0, 0);
+                    break;
+                case 8:
+                    Builder(save, "Polis griper tjuv, inget stöldgods", 0, 1);
+                    break;
                 default:
                     break;
             }

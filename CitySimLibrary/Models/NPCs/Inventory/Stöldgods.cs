@@ -6,8 +6,15 @@ using System.Threading.Tasks;
 
 namespace CitySimLibrary.Models.NPCs.Inventory
 {
-    public class Tillhörigheter
+    class Stöldgods : Inventorys
     {
-        
+        public Stöldgods()
+        {
+
+        }
+        //public override void GetInventory()
+        //{
+
+        //}
     }
 }

@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace CitySimLibrary.Models.NPCs.Inventory
 {
-    class Beslagtaget 
+    class Beslagtaget : Inventorys
     {
-        
+        public Beslagtaget()
+        {
+
+        }
+        //public override void GetInventory()
+        //{
+
+        //}
+
     }
 }

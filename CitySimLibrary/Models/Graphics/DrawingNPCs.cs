@@ -66,8 +66,8 @@ namespace TjuvOchPolis
                     break;
                 case 8:
                     yPos = 26;
-                    break;            
-                                            
+                    break;          
+                                         
                 
                 default:
                     break;

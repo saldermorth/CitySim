@@ -10,16 +10,81 @@ namespace TjuvOchPolis
 {
     public class Logic
     {
+        private static int counter = 1;
         public void Run()
         {
+        
             Console.SetWindowSize(110, 30);
             Saver save = new Saver(0, 0);
             NPC main = new NPC();
-            List<NPC> Populus = main.MakeAllNPC();
+            //List<NPC> Populus = main.MakeAllNPC();
+            
             DrawingCity city = new DrawingCity();
             DrawingNPCs npcs = new DrawingNPCs();
             Saver logg = new Saver(0,0);
-            
+            Medborgare med = new Medborgare();
+            Polis pol = new Polis();
+            Tjuv tju = new Tjuv();
+
+            List<NPC> Populus = new List<NPC>(50);
+            for (int i = 0; i < 70; i++) // Number of npcs
+            {
+
+                NPC test = new NPC();
+
+
+                Populus.Add(test);
+                
+            }
+            foreach (var i in Populus)
+            {
+                i.Location = main.GiveLocation();
+                i.Direction = main.GiveDirection();
+                i.Id = counter;
+                counter++;
+                i.Grid = main.GiveGrid();
+                if (i.Id <50)
+                {
+                    i.NPC_TYPE = 'M';
+                    i.Inventory = med.MakeInventory();
+                }
+                else if (i.Id > 50 && i.Id <65)
+                {
+                  i.NPC_TYPE = 'P';
+                    i.Inventory = pol.MakeInventory();
+                }
+                else
+                {
+                    i.NPC_TYPE = 'T';
+                   i.Inventory = tju.MakeInventory();
+                }
+
+            }
+            //for (int i = 1; i < 50; i++)
+            //{
+            //    Populus[i].Location = main.GiveLocation();
+            //    Populus[i].Direction = main.GiveDirection();
+            //    Populus[i].Id = counter;
+            //    counter++;
+            //    Populus[i].Grid = main.GiveGrid();
+            //    if (i < 25)
+            //    {
+            //        Populus[i].NPC_TYPE = 'M';
+            //        Populus[i].Inventory = med.MakeInventory();
+            //    }
+            //    else if (i>25 && i <35)
+            //    {
+            //        Populus[i].NPC_TYPE = 'P';
+            //        Populus[i].Inventory = pol.MakeInventory();
+            //    }
+            //    else
+            //    {
+            //        Populus[i].NPC_TYPE = 'T';
+            //        Populus[i].Inventory = tju.MakeInventory();
+            //    }
+
+
+            //}
             
             Console.WriteLine("Press ESC to stop");
             do
@@ -144,34 +209,56 @@ namespace TjuvOchPolis
                     {
                         if (Citizens[i].Id != Citizens[j].Id)
                         {
-                            Thread.Sleep(800);
+                            Thread.Sleep(80);
                             if (Citizens[i].NPC_TYPE == Citizens[j].NPC_TYPE)
                             {
-                                //Same type if citizen dose nothing
+                                //Same type if citizen nothing happens.
                             }
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'T')
                             {
-                                //To do - skriv ut tjuv gripen 
-                                writer.HUDWriter(save, 1);
+                                if (Citizens[j].Inventory.Count>0)
+                                {
+                                    Citizens[i].Inventory = Citizens[j].Inventory.GetRange(0, Citizens[j].Inventory.Count);
+                                    Citizens[j].Inventory.Clear();
+                                    writer.HUDWriter(save, 1);
+                                }
+                                writer.HUDWriter(save, 8);
+
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'P')
                             {
-                                //To do - skriv ut tjuv gripen
-                                writer.HUDWriter(save, 2);
+                                if (Citizens[i].Inventory.Count >0)
+                                {
+                                    Citizens[j].Inventory = Citizens[i].Inventory.GetRange(0, Citizens[i].Inventory.Count);
+                                    Citizens[i].Inventory.Clear();                                    
+                                    writer.HUDWriter(save, 2);
+                                }
+                                
                             }
                             else if (Citizens[i].NPC_TYPE == 'T' && Citizens[j].NPC_TYPE == 'M')
                             {
-                                //To do - medborgare rånad
-                                writer.HUDWriter(save, 3);
+                                if (Citizens[j].Inventory.Count>0)
+                                {
+                                    Citizens[i].Inventory = Citizens[j].Inventory.GetRange(0, 1);
+                                    Citizens[j].Inventory.RemoveAt(0);
+                                    writer.HUDWriter(save, 3);
+                                }
+
+                                writer.HUDWriter(save, 7);
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'T')
                             {
-                                //To do - medborgare rånad
-                                writer.HUDWriter(save, 4);
+                                if (Citizens[i].Inventory.Count >0)
+                                {
+                                    Citizens[j].Inventory = Citizens[i].Inventory.GetRange(0, 1);
+                                    Citizens[i].Inventory.RemoveAt(0);
+                                    writer.HUDWriter(save, 4);
+                                }
+                                writer.HUDWriter(save, 7);
                             }
                             else if (Citizens[i].NPC_TYPE == 'P' && Citizens[j].NPC_TYPE == 'M')
                             {
-                                 //To do - Polis hälsar på polis
+                                 
                                 writer.HUDWriter(save, 5);
                             }
                             else if (Citizens[i].NPC_TYPE == 'M' && Citizens[j].NPC_TYPE == 'P')
@@ -179,7 +266,6 @@ namespace TjuvOchPolis
                                 Console.WriteLine();//To do - Polis hälsar på polis
                                 writer.HUDWriter(save, 6);
                             }
-
 
                             inConflict.Add(Citizens[j]);
                             
